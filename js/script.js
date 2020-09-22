@@ -90,18 +90,23 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 
-	modalCLoseBtn.addEventListener('click', () => {
-		//modal.style.display = 'none';
-		modal.classList.toggle('show');
-		document.body.style.overflow = '';
-	});
-	modal.addEventListener('click', (event) => {
-		if (event.target === modal) {
-			//modal.style.display = 'none';
-			modal.classList.toggle('show');
-			document.body.style.overflow = '';
+
+	modalCLoseBtn.addEventListener('click', closeModal);
+	modal.addEventListener('click', (e) => {
+		if (e.target === modal) {
+			closeModal();
 		}
 	});
 
+	function closeModal() {
+		//modal.style.display = 'none';
+		modal.classList.toggle('show');
+		document.body.style.overflow = '';
+	}
+	document.addEventListener('keydown', (e) => {
+		if (e.code === 'Escape' && modal.classList.contains('show')) {
+			closeModal()
+		}
+	})
 
 });
