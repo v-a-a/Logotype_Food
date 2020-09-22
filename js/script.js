@@ -95,8 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		modal.classList.toggle('show');
 		document.body.style.overflow = '';
 	});
-	modal.addEventListener('click', (e) => {
-		if (e.target === modal) {
+	modal.addEventListener('click', (event) => {
+		if (event.target === modal) {
 			//modal.style.display = 'none';
 			modal.classList.toggle('show');
 			document.body.style.overflow = '';
